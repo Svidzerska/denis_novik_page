@@ -1,6 +1,9 @@
 function Button(props : any) {
    return (
-      <button>{props.text}</button>
+      <button onClick={props.onClick}
+      value={props.value}
+      className={props.className}
+      >{props.value}</button>
    )
 }
 
