@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Button from "./elements/Button";
+import Button from "../elements/Button";
 import foto from '../../images/Group_2_1.png';
 import './headers.scss';
 import { setLanguage } from "../../app/features/languageSlice";
@@ -12,10 +12,6 @@ function Headers(props: any) {
 
    const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
    const section = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
-
-   useEffect(() => {
-      console.log(language);
-   }, [language]);
 
    const info = () => {
       if (language === "Eng") {
