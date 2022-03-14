@@ -13,6 +13,11 @@ function Headers(props: any) {
    const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
    const section = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
 
+
+   useEffect(() => {
+      console.log(section);
+   }, [section]);
+
    const info = () => {
       if (language === "Eng") {
          return {
@@ -51,13 +56,14 @@ function Headers(props: any) {
    }
 
 
-   const headerNavigationList = info()?.headersNavigator.map(element => {
+   const headerNavigationList = info()?.headersNavigator.map((element,index) => {
+      const indexSection = index.toString();
       return (
          <p key={element} >
-            <a href={'#' + element}
-             id={element}
+            <a href={'#' + index + 'Section'}
+             id={indexSection}
               onClick={handleNavigation}
-              className={section === element ? "navigations_items__active" : "navigations_items"}>
+              className={section === indexSection ? "navigations_items__active" : "navigations_items"}>
                {element}
             </a>
          </p>
@@ -74,11 +80,11 @@ function Headers(props: any) {
 
    const renderHeadersInfoName = () => {
       return (
-         <div id="Home" className="headers__info_name">
+         <div id="0Section" className="headers__info_name">
             <div className="headers__name">
-               {info()?.name}
-               <br />
-               {info()?.surname}
+                  {info()?.name}
+                  <br />
+                  {info()?.surname}
             </div>
             <div className="headers__info">
                <p>{info()?.info_profession}</p>

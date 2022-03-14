@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-   selectSection: "Home",   
+   selectSection: "0",   
 }
 
 
