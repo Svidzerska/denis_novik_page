@@ -82,9 +82,9 @@ function Headers(props: any) {
       return (
          <div id="0Section" className="headers__info_name">
             <div className="headers__name">
-                  {info()?.name}
+                  <span>{info()?.name}</span>
                   <br />
-                  {info()?.surname}
+                  <span>{info()?.surname}</span>
             </div>
             <div className="headers__info">
                <p>{info()?.info_profession}</p>

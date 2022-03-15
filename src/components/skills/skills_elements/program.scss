@@ -1,0 +1,31 @@
+.program {
+   width: 165px;
+   p {
+      margin: 0;
+   }
+
+   .program__picture {
+      margin-bottom: 25px;
+   }
+
+   .program__name {
+      margin-bottom: 40px;
+      font-family: 'Gilroy-Bold';
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #828282;
+      height: 34px;
+   }
+
+   .program__star {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      img {
+         width: 26px;
+         height: 26px;
+      }
+   }
+}

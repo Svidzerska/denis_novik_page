@@ -7,7 +7,6 @@ import Ai from "./images/Ai.png";
 import Ae from "./images/Ae.png";
 import Figma from "./images/Figma.png";
 
-
 function Skills() {
    const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
    
