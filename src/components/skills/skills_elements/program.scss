@@ -1,5 +1,4 @@
 .program {
-   width: 165px;
    p {
       margin: 0;
    }
@@ -19,13 +18,31 @@
    }
 
    .program__star {
+      margin-left: auto;
+      margin-right: auto;
+      width: 165px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      margin-bottom: 110px;
 
       img {
          width: 26px;
          height: 26px;
       }
+   }
+}
+
+@media screen and (max-width: 840px) {
+         .program {
+            width: 100%;
+            flex-basis: 50%;
+         }
+}
+
+@media screen and (max-width: 540px) {
+   .program {
+      width: 100%;
+      flex-basis: 100%;
    }
 }
