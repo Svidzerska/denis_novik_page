@@ -43,10 +43,12 @@ function Headers(props: any) {
    }
 
    const handleButtonEng = (e: any) => {
+      dispatch(setSection("0"));
       dispatch(setLanguage("Eng"));
    }
 
    const handleButtonUkr = (e: any) => {
+      dispatch(setSection("0"));
       dispatch(setLanguage("Ukr"));
    }
 

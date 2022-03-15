@@ -26,6 +26,26 @@
       height: 42px;
       margin-bottom: 85px;
       border-radius: 21px;
+      cursor: pointer;
+   }
+
+   .footer__resource {
+      width: 342px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+   }
+
+   .footer__like_me {
+      font-family: 'Gilroy-Medium';
+      font-size: 14px;
+      line-height: 17px;
+      text-align: center;
+      color: #828282;
+      margin-bottom: 123px;
    }
 }
 
