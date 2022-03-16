@@ -22,11 +22,6 @@ function Headers(props: any) {
    const [menuText, setMenuText] = useState(false);
 
 
-
-   useEffect(() => {
-      console.log(matches);
-   }, [matches]);
-
    const info = () => {
       if (language === "Eng") {
          return {
@@ -92,9 +87,9 @@ function Headers(props: any) {
       )
    }
 
-   const renderHeadersInfoName = () => {
+   const renderNameInfo = () => {
       return (
-         <div id="0Section" className="headers__info_name">
+         <div>
             <div className="headers__name">
                <span>{info()?.name}</span>
                <br />
@@ -104,15 +99,29 @@ function Headers(props: any) {
                <p>{info()?.info_profession}</p>
                <p>{info()?.info_age}</p>
             </div>
-            <div className="headers__buttonsLang">
-               <Button onClick={handleButtonEng}
-                  value={info()?.buttonLang2}
-                  className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
-               /> | <Button onClick={handleButtonUkr}
-                  value={info()?.buttonLang1}
-                  className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
-               />
-            </div>
+         </div>
+      )
+   }
+
+   const renderButtonLang = () => {
+      return (
+         <div className="headers__buttonsLang">
+            <Button onClick={handleButtonEng}
+               value={info()?.buttonLang2}
+               className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
+            /> | <Button onClick={handleButtonUkr}
+               value={info()?.buttonLang1}
+               className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
+            />
+         </div>
+      )
+   }
+
+   const renderHeadersInfoName = () => {
+      return (
+         <div id="0Section" className="headers__info_name">
+            {renderNameInfo()}
+            {renderButtonLang()}
          </div>
       )
    }
@@ -123,21 +132,13 @@ function Headers(props: any) {
 
    const renderHeadersSmall = () => {
       return (<div className="headers_small">
-         <div>
-            <div className="headers__name">
-               <span>{info()?.name}</span>
-               <br />
-               <span>{info()?.surname}</span>
-            </div>
-            <div className="headers__info">
-               <p>{info()?.info_profession}</p>
-               <p>{info()?.info_age}</p>
+         <div className="headers_small__info">
+            {renderNameInfo()}
+            <div>
+               <Button className="headers_small__button" value={<img src={menu}></img>} onClick={handleMenu}/>
             </div>
          </div>
-         <div>
-            <Button value={<img src={menu}></img>} onClick={handleMenu}/>
-         </div>
-         <div><img src={foto_small} alt="fotoman" /></div>
+         <div className="headers_small__picture"><img src={foto_small} alt="fotoman" /></div>
       </div>)
    }
 
@@ -147,41 +148,25 @@ function Headers(props: any) {
 
    const renderMenuSmall = () => {
       return (
-         <div>
             <div>
                {renderNavigation()}
                <Button value={<img src={menu_close} alt=""/>} onClick={handleClosePress}/>
-               <div className="headers__buttonsLang">
-               <Button onClick={handleButtonEng}
-                  value={info()?.buttonLang2}
-                  className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
-               /> | <Button onClick={handleButtonUkr}
-                  value={info()?.buttonLang1}
-                  className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
-               />
-            </div>
+               {renderButtonLang()}
             </div>
 
-         </div>
       )
    }
 
-   return (
-      matches ?
-         <div>{menuText ? renderMenuSmall() : renderHeadersSmall()}</div>
+   return matches ?
+         <div className="headers">{menuText ? renderMenuSmall() : renderHeadersSmall()}</div>
          :
-         (
-            <div className="headers">
-               <div>
-                  {`The view port is ${matches ? 'less than' : 'more than'} 640px pixels wide`}
-               </div>
-               {renderNavigation()}
-               {renderHeadersInfoName()}
-               <div className="headers__picture">
-                  <img src={foto} alt="Novik" />
-               </div>
-            </div>)
-   )
+         (<div className="headers">
+            {renderNavigation()}
+            {renderHeadersInfoName()}
+            <div className="headers__picture">
+               <img src={foto} alt="Novik" />
+            </div>
+         </div>)
 }
 
 export default Headers;
