@@ -30,12 +30,18 @@
       padding-bottom: 50px;
       padding-top: 40px;
 
-      .headers__name {
+      > div {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: flex-end;
+         .headers__name {
          font-family: "Gilroy-Bold";
          font-size: 47px;
          line-height: 59px;
          color: #070707;
          margin: 0;
+         margin-right: 50px;
       }
 
       .headers__info {
@@ -47,6 +53,9 @@
             margin: 0;
          }
       }
+      }
+
+      
 
       .headers__buttonsLang {
          transform: rotate(-90deg) translateX(100%);
@@ -76,6 +85,8 @@
          width: 100%;
       }
    }
+
+
    .headers_small {
       max-width: 315px;
       margin-left: auto;
@@ -85,40 +96,104 @@
          width: 100%;
          margin-bottom: 80px;
       }
-   .headers_small__info {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      
-      .headers_small__button {
-         margin-top: 70px;
-         background: none;
-         border: none;
-         cursor: pointer;
-      }
 
-      > div {
-         text-align: left;
-         .headers__name {
-            margin-top: 65px;
-            font-family: 'Gilroy-Bold';
-            font-size: 47px;
-            line-height: 58px;
-            color: #000000;
+      .headers_small__info {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+
+         .headers_small__button {
+            margin-top: 70px;
+            background: none;
+            border: none;
+            cursor: pointer;
          }
 
-         .headers__info {
-            margin-top: 23px;
-            margin-bottom: 35px;
-            font-family: 'Gilroy-Medium';
-            font-size: 18px;
-            line-height: 22px;
-            color: #090909;
-            p {
-               margin: 0;
+         > div {
+            text-align: left;
+            .headers__name {
+               margin-top: 65px;
+               font-family: "Gilroy-Bold";
+               font-size: 47px;
+               line-height: 58px;
+               color: #000000;
+            }
+
+            .headers__info {
+               margin-top: 23px;
+               margin-bottom: 35px;
+               font-family: "Gilroy-Medium";
+               font-size: 18px;
+               line-height: 22px;
+               color: #090909;
+               p {
+                  margin: 0;
+               }
             }
          }
       }
    }
+
+   .headers_smallMenu {
+      max-width: 315px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+
+      .headers__buttonsLang {
+         align-self: flex-end;
+         width: fit-content;
+         transform: rotate(90deg) translateY(100%);
+         transform-origin: 100% 100%;
+         font-family: 'Gilroy-Bold';
+         font-size: 34px;
+         line-height: 42px;
+         padding-right: 60px;
+         
+         button {
+            font-family: 'Gilroy-Bold';
+            font-size: 34px;
+            line-height: 42px;
+            border: none;
+            background: none;
+            cursor: pointer;
+         }
+
+         .buttonLang {
+            color: #828282;
+         }
+
+         .buttonLang__active {
+            color: black;
+         }
+      }
+
+      .headers_smallMenu__list {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+
+            .headers__navigation_items {
+               margin-top: 30px;
+               margin-bottom: 305px;
+               flex-direction: column;
+               border: none;
+               text-align: left;
+               font-family: 'Gilroy-Bold';
+               font-size: 34px;
+               line-height: 42px;
+               color: #090909;
+            }
+
+            button {
+               margin-top: 70px;
+               background: none;
+               border: none;
+               height: fit-content;
+               cursor: pointer;
+            }
+      }
+      
    }
 }

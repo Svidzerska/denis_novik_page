@@ -21,6 +21,10 @@ function Headers(props: any) {
 
    const [menuText, setMenuText] = useState(false);
 
+   useEffect(() => {
+      console.log(section);
+   }, [section]);
+
 
    const info = () => {
       if (language === "Eng") {
@@ -67,6 +71,7 @@ function Headers(props: any) {
 
    const headerNavigationList = info()?.headersNavigator.map((element, index) => {
       const indexSection = index.toString();
+      console.log(index);
       return (
          <p key={element} >
             <a href={'#' + index + 'Section'}
@@ -106,12 +111,13 @@ function Headers(props: any) {
    const renderButtonLang = () => {
       return (
          <div className="headers__buttonsLang">
+            <Button href="#0Section" onClick={handleButtonUkr}
+               value={info()?.buttonLang1}
+               className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
+            />|
             <Button onClick={handleButtonEng}
                value={info()?.buttonLang2}
                className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
-            /> | <Button onClick={handleButtonUkr}
-               value={info()?.buttonLang1}
-               className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
             />
          </div>
       )
@@ -148,12 +154,13 @@ function Headers(props: any) {
 
    const renderMenuSmall = () => {
       return (
-            <div>
-               {renderNavigation()}
-               <Button value={<img src={menu_close} alt=""/>} onClick={handleClosePress}/>
+            <div className="headers_smallMenu">
+               <div className="headers_smallMenu__list">
+                  {renderNavigation()}
+                  <Button value={<img src={menu_close} alt=""/>} onClick={handleClosePress}/>
+               </div>
                {renderButtonLang()}
             </div>
-
       )
    }
 
