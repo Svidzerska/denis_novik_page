@@ -60,7 +60,7 @@ function Footer() {
       console.log("press button");
    } 
 
-   return (<div id="4Section" className="footer" >
+   return (<div id="footer" className="footer" >
       <Names value={info()?.named} />
       <p className="footer__welcome">
          {info()?.info_first_line}

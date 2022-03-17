@@ -40,7 +40,7 @@ function Portfolio() {
    })
 
    
-   return (<div id="3Section" className="portfolio">
+   return (<div id="portfolio" className="portfolio">
       <Names value={info()?.named} />
       {renderPorfolio}
    </div>

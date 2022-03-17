@@ -64,7 +64,7 @@ function Skills() {
       )
    })
 
-   return (<div id="2Section" className="skills">
+   return (<div id="skills" className="skills">
       <Names value={info()?.named} />
       <p className="skills__action">{info()?.action}</p>
       <div className="all_my_programs">{renderProgram}</div>

@@ -28,7 +28,7 @@ function Info() {
       }
    }
 
-   return (<div id="1Section" className="about_me__info" >
+   return (<div id="info" className="about_me__info" >
       {info()}
    </div>
    )

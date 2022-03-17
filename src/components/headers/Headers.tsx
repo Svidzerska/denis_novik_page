@@ -5,6 +5,7 @@ import foto from '../../images/Group_2_1.png';
 import menu from '../../images/menu.png';
 import foto_small from '../../images/Group_2_1_small.png';
 import menu_close from '../../images/menu_close.png';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import './headers.scss';
 import { setLanguage } from "../../app/features/languageSlice";
@@ -69,17 +70,19 @@ function Headers(props: any) {
    }
 
 
+   const nav = ["headers", "info", "skills", "portfolio", "footer"];
    const headerNavigationList = info()?.headersNavigator.map((element, index) => {
       const indexSection = index.toString();
       console.log(index);
       return (
          <p key={element} >
-            <a href={'#' + index + 'Section'}
-               id={indexSection}
+            <Link to={"#" + nav[index]}>
+               <span id={indexSection}
                onClick={handleNavigation}
                className={section === indexSection ? "navigations_items__active" : "navigations_items"}>
-               {element}
-            </a>
+                  {element}
+               </span>
+            </Link>
          </p>
       )
    });
@@ -111,21 +114,26 @@ function Headers(props: any) {
    const renderButtonLang = () => {
       return (
          <div className="headers__buttonsLang">
-            <Button href="#0Section" onClick={handleButtonUkr}
+            <Link to={"#headers"}>
+               <Button onClick={handleButtonUkr}
                value={info()?.buttonLang1}
                className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
-            />|
-            <Button onClick={handleButtonEng}
-               value={info()?.buttonLang2}
-               className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
             />
+            </Link>
+            |
+            <Link to={"#headers"}>
+               <Button onClick={handleButtonEng}
+                  value={info()?.buttonLang2}
+                  className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
+               />
+            </Link>
          </div>
       )
    }
 
    const renderHeadersInfoName = () => {
       return (
-         <div id="0Section" className="headers__info_name">
+         <div id="headers" className="headers__info_name">
             {renderNameInfo()}
             {renderButtonLang()}
          </div>
@@ -138,7 +146,7 @@ function Headers(props: any) {
 
    const renderHeadersSmall = () => {
       return (<div className="headers_small">
-         <div className="headers_small__info">
+         <div id="headers" className="headers_small__info">
             {renderNameInfo()}
             <div>
                <Button className="headers_small__button" value={<img src={menu}></img>} onClick={handleMenu}/>
