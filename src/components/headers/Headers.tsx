@@ -11,6 +11,7 @@ import './headers.scss';
 import { setLanguage } from "../../app/features/languageSlice";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { setSection } from "../../app/features/navigationSlice";
+import useHeadersInfo from "./headers_element/headers_info";
 
 
 function Headers(props: any) {
@@ -20,36 +21,11 @@ function Headers(props: any) {
    const section = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
    const matches = useMediaQuery('(max-width: 640px)');
 
+   const info = useHeadersInfo();
+   console.log(info);
+
    const [menuText, setMenuText] = useState(false);
 
-   useEffect(() => {
-      console.log(section);
-   }, [section]);
-
-
-   const info = () => {
-      if (language === "Eng") {
-         return {
-            headersNavigator: ["Home", "About me", "Skills", "Portfolio", "Contacts"],
-            name: "Denis",
-            surname: "Novik",
-            info_profession: "UX | UI designer",
-            info_age: "24 years old, Minsk",
-            buttonLang1: "UKR",
-            buttonLang2: "ENG"
-         }
-      } else if (language === "Ukr") {
-         return {
-            headersNavigator: ["Домашня сторінка", "Про мене", "Навики", "Портфоліо", "Контакти"],
-            name: "Деніс",
-            surname: "Новік",
-            info_profession: "UX | UI дизайнер",
-            info_age: "24 роки, Мінськ",
-            buttonLang1: "УКР",
-            buttonLang2: "АНГЛ"
-         }
-      }
-   }
 
    const handleButtonEng = (e: any) => {
       setMenuText(false);
@@ -71,9 +47,8 @@ function Headers(props: any) {
 
 
    const nav = ["headers", "info", "skills", "portfolio", "footer"];
-   const headerNavigationList = info()?.headersNavigator.map((element, index) => {
+   const headerNavigationList = info?.headersNavigator.map((element, index) => {
       const indexSection = index.toString();
-      console.log(index);
       return (
          <p key={element} >
             <Link to={"#" + nav[index]}>
@@ -99,13 +74,13 @@ function Headers(props: any) {
       return (
          <div>
             <div className="headers__name">
-               <span>{info()?.name}</span>
+               <span>{info?.name}</span>
                <br />
-               <span>{info()?.surname}</span>
+               <span>{info?.surname}</span>
             </div>
             <div className="headers__info">
-               <p>{info()?.info_profession}</p>
-               <p>{info()?.info_age}</p>
+               <p>{info?.info_profession}</p>
+               <p>{info?.info_age}</p>
             </div>
          </div>
       )
@@ -116,14 +91,14 @@ function Headers(props: any) {
          <div className="headers__buttonsLang">
             <Link to={"#headers"}>
                <Button onClick={handleButtonUkr}
-               value={info()?.buttonLang1}
+               value={info?.buttonLang1}
                className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
             />
             </Link>
             |
             <Link to={"#headers"}>
                <Button onClick={handleButtonEng}
-                  value={info()?.buttonLang2}
+                  value={info?.buttonLang2}
                   className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
                />
             </Link>
@@ -172,7 +147,7 @@ function Headers(props: any) {
       )
    }
 
-   return matches ?
+   return matches ? 
          <div className="headers">{menuText ? renderMenuSmall() : renderHeadersSmall()}</div>
          :
          (<div className="headers">
