@@ -12,12 +12,10 @@ import { setLanguage } from "../../app/features/languageSlice";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { setSection } from "../../app/features/navigationSlice";
 import useHeadersInfo from "./headers_element/headers_info";
-import { useLocation } from "react-router-dom";
 
 
 function Headers(props: any) {
    const dispatch = useDispatch();
-   const location = useLocation();
 
    const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
    const section = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
@@ -31,6 +29,9 @@ function Headers(props: any) {
 
    useEffect(() => {
       window.location.hash = "";
+      // setTimeout(() => {
+      //       window.scrollTo(0, 0);
+      // }, 2000);
    }, []);
 
    const handleButtonEng = (e: any) => {
