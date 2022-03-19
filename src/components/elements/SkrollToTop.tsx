@@ -7,11 +7,9 @@ const ScrollToTop = (props: any) => {
    
 
    useEffect(() => {
-      console.log(window.visualViewport);
-      // setTimeout(() => {
-      //    window.scrollTo(0, 0);
-      // }, 2000);
-      window.scrollTo(0, 0);
+      if(location.hash === "") {
+         document.getElementById("root")?.scrollIntoView();
+      }
    }, [location]);
 
 

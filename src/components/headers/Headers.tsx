@@ -29,10 +29,8 @@ function Headers(props: any) {
 
    useEffect(() => {
       window.location.hash = "";
-      // setTimeout(() => {
-      //       window.scrollTo(0, 0);
-      // }, 2000);
    }, []);
+
 
    const handleButtonEng = (e: any) => {
       setMenuText(false);
