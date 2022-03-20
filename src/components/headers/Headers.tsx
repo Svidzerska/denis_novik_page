@@ -77,7 +77,7 @@ function Headers(props: any) {
 
    const renderNameInfo = () => {
       return (
-         <div>
+         <>
             <div className="headers__name">
                <span>{info?.name}</span>
                <br />
@@ -87,7 +87,7 @@ function Headers(props: any) {
                <p>{info?.info_profession}</p>
                <p>{info?.info_age}</p>
             </div>
-         </div>
+         </>
       )
    }
 
@@ -127,7 +127,7 @@ function Headers(props: any) {
    const renderHeadersSmall = () => {
       return (<div className="headers_small">
          <div id="headers" className="headers_small__info">
-            {renderNameInfo()}
+            <div className="name_info_flex">{renderNameInfo()}</div>
             <div>
                <Button className="headers_small__button" value={<img src={menu}></img>} onClick={handleMenu}/>
             </div>

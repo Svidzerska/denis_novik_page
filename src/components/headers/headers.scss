@@ -30,12 +30,14 @@
       padding-bottom: 50px;
       padding-top: 40px;
 
-      > div {
+      > div.name_info_flex {
          display: flex;
          flex-direction: row;
          justify-content: space-between;
          align-items: flex-end;
-         .headers__name {
+      }
+
+      .headers__name {
          font-family: "Gilroy-Bold";
          font-size: 47px;
          line-height: 59px;
@@ -52,7 +54,6 @@
          p {
             margin: 0;
          }
-      }
       }
 
       
