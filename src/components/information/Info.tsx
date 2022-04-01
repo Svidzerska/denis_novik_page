@@ -5,7 +5,7 @@ import useMediaQuery from "../elements/hooks/useMediaQuery";
 
 
 
-function Info() {
+function Info():JSX.Element {
    const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
    const matches = useMediaQuery('(max-width: 640px)');
 

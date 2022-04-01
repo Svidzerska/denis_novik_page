@@ -14,7 +14,7 @@ import { setSection } from "../../app/features/navigationSlice";
 import useHeadersInfo from "./headers_element/headers_info";
 
 
-function Headers(props: any) {
+function Headers():JSX.Element {
    const dispatch = useDispatch();
 
    const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
