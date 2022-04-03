@@ -1,0 +1,11 @@
+{
+   "headers": {
+      "headersNavigator": ["Home", "About me", "Skills", "Portfolio", "Contacts"],
+         "name": "Denis",
+         "surname": "Novik",
+         "info_profession": "UX | UI designer",
+         "info_age": "24 years old, Minsk",
+         "buttonLang1": "UKR",
+         "buttonLang2": "ENG"
+   }
+}

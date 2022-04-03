@@ -1,0 +1,11 @@
+{
+   "headers": {
+      "headersNavigator": ["Домашня сторінка", "Про мене", "Навики", "Портфоліо", "Контакти"],
+      "name": "Деніс",
+      "surname": "Новік",
+      "info_profession": "UX | UI дизайнер",
+      "info_age": "24 роки, Мінськ",
+      "buttonLang1": "УКР",
+      "buttonLang2": "АНГЛ"
+   }
+}

@@ -12,14 +12,23 @@ import { setLanguage } from "../../app/features/languageSlice";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { setSection } from "../../app/features/navigationSlice";
 import useHeadersInfo from "./headers_element/headers_info";
+import { useTranslation, Trans } from 'react-i18next';
+
+const lngs = {
+  en: { nativeName: 'English' },
+  ukr: { nativeName: 'Ukrainian' }
+};
+
 
 
 function Headers():JSX.Element {
+   const { t, i18n } = useTranslation();
+
    const dispatch = useDispatch();
 
-   const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
-   const section = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
-   const matches = useMediaQuery('(max-width: 640px)');
+   const language: string = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
+   const section: string = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
+   const matches: boolean = useMediaQuery('(max-width: 640px)');
 
    const info = useHeadersInfo();
    console.log(info);
@@ -51,9 +60,9 @@ function Headers():JSX.Element {
    }
 
 
-   const nav = ["headers", "info", "skills", "portfolio", "footer"];
+   const nav: string[] = ["headers", "info", "skills", "portfolio", "footer"];
    const headerNavigationList = info?.headersNavigator.map((element, index) => {
-      const indexSection = index.toString();
+      const indexSection: string = index.toString();
       return (
          <p key={element} >
             <Link to={"#" + nav[index]}>
