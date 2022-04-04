@@ -8,16 +8,11 @@ import menu_close from '../../images/menu_close.png';
 import { HashLink as Link } from 'react-router-hash-link';
 
 import './headers.scss';
-import { setLanguage } from "../../app/features/languageSlice";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { setSection } from "../../app/features/navigationSlice";
-import useHeadersInfo from "./headers_element/headers_info";
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation} from 'react-i18next';
 
-const lngs = {
-  en: { nativeName: 'English' },
-  ukr: { nativeName: 'Ukrainian' }
-};
+
 
 
 
@@ -26,33 +21,24 @@ function Headers():JSX.Element {
 
    const dispatch = useDispatch();
 
-   const language: string = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
    const section: string = useSelector((state: RootStateOrAny) => state.navigation.selectSection);
    const matches: boolean = useMediaQuery('(max-width: 640px)');
 
-   const info = useHeadersInfo();
-   console.log(info);
 
    const [menuText, setMenuText] = useState(false);
 
-
+   
    useEffect(() => {
       window.location.hash = "";
    }, []);
 
+   const lngs = {
+      en: { nativeName: t("headers.buttonLang2") },
+      ukr: { nativeName: t("headers.buttonLang1")}
+   };
 
-   const handleButtonEng = (e: any) => {
-      setMenuText(false);
-      dispatch(setSection("0"));
-      dispatch(setLanguage("Eng"));
-   }
-
-   const handleButtonUkr = (e: any) => {
-      setMenuText(false);
-      dispatch(setSection("0"));
-      dispatch(setLanguage("Ukr"));
-   }
-
+   console.log(t("headers.headersNavigator", { returnObjects: true }));
+   
    const handleNavigation = (e: any) => {
       setMenuText(false);
       console.log(e.target.id);
@@ -61,7 +47,8 @@ function Headers():JSX.Element {
 
 
    const nav: string[] = ["headers", "info", "skills", "portfolio", "footer"];
-   const headerNavigationList = info?.headersNavigator.map((element, index) => {
+   const a : Array<string> = t("headers.headersNavigator", { returnObjects: true });
+   const headerNavigationList = a.map((element, index) => {
       const indexSection: string = index.toString();
       return (
          <p key={element} >
@@ -88,13 +75,13 @@ function Headers():JSX.Element {
       return (
          <>
             <div className="headers__name">
-               <span>{info?.name}</span>
+               <span>{t("headers.name")}</span>
                <br />
-               <span>{info?.surname}</span>
+               <span>{t("headers.surname")}</span>
             </div>
             <div className="headers__info">
-               <p>{info?.info_profession}</p>
-               <p>{info?.info_age}</p>
+               <p>{t("headers.info_profession")}</p>
+               <p>{t("headers.info_age")}</p>
             </div>
          </>
       )
@@ -104,17 +91,15 @@ function Headers():JSX.Element {
       return (
          <div className="headers__buttonsLang">
             <Link to={"#headers"}>
-               <Button onClick={handleButtonUkr}
-               value={info?.buttonLang1}
-               className={language === "Ukr" ? "buttonLang__active" : "buttonLang"}
-            />
-            </Link>
-            |
-            <Link to={"#headers"}>
-               <Button onClick={handleButtonEng}
-                  value={info?.buttonLang2}
-                  className={language === "Eng" ? "buttonLang__active" : "buttonLang"}
-               />
+               {Object.keys(lngs).map((lng) => {
+                  return <button key={lng}
+                     style={{ fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal' }}
+                     className={i18n.resolvedLanguage === lng ? "buttonLang__active" : "buttonLang"}
+                     type="submit"
+                     onClick={() => { i18n.changeLanguage(lng); }}>  
+                     {lngs[lng as keyof typeof lngs].nativeName}
+                  </button>
+               })}
             </Link>
          </div>
       )
@@ -129,7 +114,7 @@ function Headers():JSX.Element {
       )
    }
 
-   const handleMenu = (e:any) => {
+   const handleMenu = () => {
       setMenuText(true);
    }
 
