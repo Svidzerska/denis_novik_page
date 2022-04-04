@@ -2,7 +2,15 @@ import Star_black from "../images/Star_black.png";
 import Star_gray from "../images/Star_gray.png";
 import './program.scss';
 
-function Program(props : any) {
+interface ProgramList {
+   key: string,
+   img: string,
+   name_program_first_line: string,
+   name_program_second_line: string,
+   numberStar: number
+}
+
+function Program(props : ProgramList):JSX.Element {
 
    const star = [Star_gray, Star_gray, Star_gray, Star_gray, Star_gray];
    const star_list = star.map((element,index) => {

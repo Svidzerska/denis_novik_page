@@ -1,4 +1,3 @@
-import { useSelector, RootStateOrAny } from "react-redux";
 import './footer.scss';
 import Names from "../elements/Names";
 import Button from "../elements/Button";
@@ -7,46 +6,20 @@ import instagram from "./images/Instagram.png";
 import dribble from "./images/Dribble.png";
 import behance from "./images/Behance.png";
 
-
-
-
+import { useTranslation } from "react-i18next";
 
 
 function Footer() {
-   const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
+   const {t} = useTranslation();
+   const resourse:string[] = [linkedIn, instagram, dribble, behance];
 
-   const resourse = [linkedIn, instagram, dribble, behance];
-
-   const resourseLink = ["https://www.linkedin.com/",
+   const resourseLink:string[] = ["https://www.linkedin.com/",
     "https://www.instagram.com/",
     "https://dribbble.com/",
     "https://www.behance.net/"
    ];
    
-   const info = () => {
-      if (language === "Eng") {
-         return ({
-            named: "Contacts",
-            info_first_line: "Want to know more or just chat?",
-            info_second_line: "You are welcome!",
-            button: "Send message",
-            liked_first_line: "Like me on",
-            liked_second_line: "LinkedIn, Instagram, Behance, Dribble",
-         })
-      } else if (language === "Ukr") {
-         return ({
-            named: "Контакти",
-            info_first_line: "Хочете дізнатися більше або просто поспілкуватися?",
-            info_second_line: "Запрошую!",
-            button: "Повідомлення",
-            liked_first_line: "залиш вподобайку на",
-            liked_second_line: "LinkedIn, Instagram, Behance, Dribble",
-         })
-      }
-   }
-
-
-   const renderResourse = resourse?.map((img, index) => {
+   const renderResourse = resourse?.map((img:string, index:number) => {
       return (
          <a href={resourseLink[index]}
             target="_blank"
@@ -61,22 +34,22 @@ function Footer() {
    } 
 
    return (<div id="footer" className="footer" >
-      <Names value={info()?.named} />
+      <Names value={t("footer.named")} />
       <p className="footer__welcome">
-         {info()?.info_first_line}
+         {t("footer.info_first_line")}
          <br/>
-         {info()?.info_second_line}
+         {t("footer.info_second_line")}
       </p>
-      <Button value={info()?.button}
+      <Button value={t("footer.button")}
        className="footer_button"
        onClick={handleButtonMessage}/>
       <div className="footer__resource">
          {renderResourse}
       </div>
       <p className="footer__like_me">
-         {info()?.liked_first_line}
+         {t("footer.liked_first_line")}
          <br/>
-         {info()?.liked_second_line}
+         {t("footer.liked_second_line")}
       </p>
    </div>
    )

@@ -1,4 +1,3 @@
-import { useSelector, RootStateOrAny } from "react-redux";
 import './skills.scss';
 import Names from "../elements/Names";
 import Program from "./skills_elements/Program";
@@ -6,28 +5,19 @@ import Ps from "./images/Ps.png";
 import Ai from "./images/Ai.png";
 import Ae from "./images/Ae.png";
 import Figma from "./images/Figma.png";
+import { useTranslation } from "react-i18next";
 
 function Skills() {
-   const language = useSelector((state: RootStateOrAny) => state.language.selectLanguage);
-   
-   const info = () => {
-      if (language === "Eng") {
-         return ({
-            named:"Skills",
-            action: "I work in such programs as",
-         }
-         )
-      } else if (language === "Ukr") {
-         return (
-            {
-               named:"Навики",
-               action: "Я працюю з наступними програмами",
-            }
-         )
-      }
-   }
+   const {t, i18n} = useTranslation();
 
-   const program_list = [
+   interface ProgramList {
+      img: string,
+      name_program_first_line: string,
+      name_program_second_line: string,
+      numberStar: number
+   }
+   
+   const program_list:ProgramList[] = [
       {
          img:Ps,
          name_program_first_line: "Adobe",
@@ -65,8 +55,8 @@ function Skills() {
    })
 
    return (<div id="skills" className="skills">
-      <Names value={info()?.named} />
-      <p className="skills__action">{info()?.action}</p>
+      <Names value={t("skills.named")} />
+      <p className="skills__action">{t("skills.action")}</p>
       <div className="all_my_programs">{renderProgram}</div>
    </div>
    )

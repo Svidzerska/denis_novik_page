@@ -13,9 +13,6 @@ import { setSection } from "../../app/features/navigationSlice";
 import { useTranslation} from 'react-i18next';
 
 
-
-
-
 function Headers():JSX.Element {
    const { t, i18n } = useTranslation();
 

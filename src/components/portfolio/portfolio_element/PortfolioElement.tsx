@@ -1,7 +1,13 @@
 import "./portfolioElement.scss";
 
 
-function PortfolioElement(props:any) {
+interface Props {
+   key: string,
+   img: string,
+   text: string
+}
+
+function PortfolioElement(props:Props) {
    return (
             <div className="portfolioElement">
                <img src={props.img} alt=""/>

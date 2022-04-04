@@ -1,6 +1,10 @@
 import './names.scss';
 
-function Names(props : any) {
+interface Props {
+   value : string
+}
+
+function Names(props : Props) {
    return (
       <p className="allSections_info__name" >{props.value}</p>
    )

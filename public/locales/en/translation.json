@@ -7,5 +7,40 @@
          "info_age": "24 years old, Minsk",
          "buttonLang1": "| UKR",
          "buttonLang2": "ENG"
+   },
+
+   "info" : {
+      "0": "Hi, I'm Denis – UX/UI designer from",
+      "1": "Minsk.",
+      "2": "I'm interested in design and",
+      "3": "everything connected with it.",
+      "4": "I'm studying at courses",
+      "5": "'Web and mobile design",
+      "6": "interfaces'",
+      "7": "in IT-Academy.",
+      "8": "Ready to implement excellent",
+      "9": "projects",
+      "10": "with wonderful people."
+   },
+
+   "skills": {
+      "named":"Skills",
+      "action": "I work in such programs as"
+   },
+
+   "portfolio": {
+      "named": "Portfolio",
+      "portfolioArray": ["Online fashion store - Homepage",
+                        "Reebok Store - Concept",
+                        "Braun Landing Page - Concept"]
+   },
+
+   "footer" : {
+      "named": "Contacts",
+      "info_first_line": "Want to know more or just chat?",
+      "info_second_line": "You are welcome!",
+      "button": "Send message",
+      "liked_first_line": "Like me on",
+      "liked_second_line": "LinkedIn, Instagram, Behance, Dribble"
    }
 }
