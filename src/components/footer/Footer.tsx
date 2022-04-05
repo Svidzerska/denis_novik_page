@@ -9,7 +9,7 @@ import behance from "./images/Behance.png";
 import { useTranslation } from "react-i18next";
 
 
-function Footer() {
+function Footer():JSX.Element {
    const {t} = useTranslation();
    const resourse:string[] = [linkedIn, instagram, dribble, behance];
 
@@ -19,7 +19,7 @@ function Footer() {
     "https://www.behance.net/"
    ];
    
-   const renderResourse = resourse?.map((img:string, index:number) => {
+   const renderResourse: JSX.Element[] = resourse?.map((img:string, index:number) => {
       return (
          <a href={resourseLink[index]}
             target="_blank"

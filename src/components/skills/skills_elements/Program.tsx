@@ -12,8 +12,8 @@ interface ProgramList {
 
 function Program(props : ProgramList):JSX.Element {
 
-   const star = [Star_gray, Star_gray, Star_gray, Star_gray, Star_gray];
-   const star_list = star.map((element,index) => {
+   const star:Array<string> = [Star_gray, Star_gray, Star_gray, Star_gray, Star_gray];
+   const star_list:Array<string> = star.map((element,index) => {
       if (index < props.numberStar) {
          return Star_black
       } else {
@@ -21,7 +21,7 @@ function Program(props : ProgramList):JSX.Element {
       }
    })
 
-   const renderStar = star_list?.map((element,index) => {
+   const renderStar: JSX.Element[] = star_list?.map((element,index) => {
       return (
          <img key={index} src={element} alt="star"/>
       )

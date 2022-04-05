@@ -22,7 +22,7 @@ function Headers():JSX.Element {
    const matches: boolean = useMediaQuery('(max-width: 640px)');
 
 
-   const [menuText, setMenuText] = useState(false);
+   const [menuText, setMenuText] = useState<boolean>(false);
 
    
    useEffect(() => {
@@ -34,18 +34,17 @@ function Headers():JSX.Element {
       ukr: { nativeName: t("headers.buttonLang1")}
    };
 
-   console.log(t("headers.headersNavigator", { returnObjects: true }));
    
-   const handleNavigation = (e: any) => {
+   const handleNavigation = (e: React.MouseEvent<HTMLElement>):void => {
       setMenuText(false);
-      console.log(e.target.id);
-      dispatch(setSection(e.target.id));
+      console.log(e.currentTarget.id);
+      dispatch(setSection(e.currentTarget.id));
    }
 
 
    const nav: string[] = ["headers", "info", "skills", "portfolio", "footer"];
    const a : Array<string> = t("headers.headersNavigator", { returnObjects: true });
-   const headerNavigationList = a.map((element, index) => {
+   const headerNavigationList: JSX.Element[] = a.map((element, index) => {
       const indexSection: string = index.toString();
       return (
          <p key={element} >
@@ -111,7 +110,7 @@ function Headers():JSX.Element {
       )
    }
 
-   const handleMenu = () => {
+   const handleMenu = ():void => {
       setMenuText(true);
    }
 
@@ -127,7 +126,7 @@ function Headers():JSX.Element {
       </div>)
    }
 
-   const handleClosePress = () => {
+   const handleClosePress = ():void => {
       setMenuText(false);
    }
 

@@ -7,7 +7,7 @@ import Portfolio from './components/portfolio/Portfolio';
 import Footer from './components/footer/Footer';
 
 
-function App() {
+function App(): JSX.Element {
    return (
          <div className="App">
             <Headers />

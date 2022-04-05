@@ -1,7 +1,15 @@
-function Button(props : any) {
+import { MouseEventHandler } from "react";
+
+interface Props {
+   onClick : MouseEventHandler<HTMLButtonElement>,
+   className?: string,
+   value: JSX.Element
+}
+
+
+function Button(props : Props) {
    return (
       <button onClick={props.onClick}
-      value={props.value}
       className={props.className}
       >{props.value}</button>
    )

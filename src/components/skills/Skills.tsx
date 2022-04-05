@@ -44,7 +44,7 @@ function Skills() {
       }
    ]
 
-   const renderProgram = program_list?.map(element => {
+   const renderProgram: JSX.Element[] = program_list?.map(element => {
       return (
          <Program key={element.name_program_second_line}
          img={element.img} 
