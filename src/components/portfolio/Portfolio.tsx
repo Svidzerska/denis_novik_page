@@ -7,7 +7,7 @@ import Braun from "./images/portfolio_example_3.png";
 import { useTranslation } from "react-i18next";
 
 
-function Portfolio() {
+function Portfolio(): JSX.Element {
    const {t} = useTranslation();
    const portfolio_img:string[] = [Fashion, Reebok, Braun];
 

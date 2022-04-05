@@ -7,7 +7,7 @@ interface Props {
 }
 
 
-function Button(props : Props) {
+function Button(props : Props):JSX.Element {
    return (
       <button onClick={props.onClick}
       className={props.className}

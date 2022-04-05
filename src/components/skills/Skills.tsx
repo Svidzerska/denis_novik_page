@@ -7,7 +7,7 @@ import Ae from "./images/Ae.png";
 import Figma from "./images/Figma.png";
 import { useTranslation } from "react-i18next";
 
-function Skills() {
+function Skills(): JSX.Element {
    const {t, i18n} = useTranslation();
 
    interface ProgramList {

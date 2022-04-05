@@ -7,7 +7,7 @@ interface Props {
    text: string
 }
 
-function PortfolioElement(props:Props) {
+function PortfolioElement(props:Props) : JSX.Element {
    return (
             <div className="portfolioElement">
                <img src={props.img} alt=""/>
